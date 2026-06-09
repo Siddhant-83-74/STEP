@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Customer
 {
-    //Has-A a Customer has many customer ~ bidirectional
-    private List<Order> orders;
     private String name;
     private int customerId;
     // if we use discount data here then for all the regular customers it will be 0
     //MIC-Mixed Instance Cohesion
     //Mixing some other instance data with this instance
+
+    //Has-A a Customer has many customer ~ bidirectional
+    private List<Order> orders;
     public Customer(String name, int customerId)
     {
         this.name=name;
@@ -38,7 +39,7 @@ public class Customer
         this.customerId=customerId;
     }
 
-    public List<Order> getOrders()
+    public List<Order> getOrder()
     {
         return this.orders;
     }

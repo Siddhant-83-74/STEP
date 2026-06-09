@@ -10,8 +10,8 @@ public class TestMain
         ghost.setName("Ghost");
         System.out.println(company.getName());
         System.out.println(ghost.getName());
+        System.out.println(company.getTotalOrderValue());
 
-        
 
 
         // var item = new Item()
@@ -69,6 +69,10 @@ Test Main Code - This is very important for you to know how totest your code
 ~ when implementing bidirectional relationship, let say there could be multiple B 
 object of class A then make a list of B class objects in class A and as it is bidirectional 
 we have to make an object of class A in class B too.
+
+
+We need to know total order value of the company
+CEO has asked to find total orde value of the company
 
 
 */

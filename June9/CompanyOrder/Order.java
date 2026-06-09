@@ -1,4 +1,6 @@
 package CompanyOrder;
+import java.util.List;
+import java.util.ArrayList;
 /*
 
 */
@@ -6,8 +8,17 @@ package CompanyOrder;
 public class Order
 {
     private int orderId;
-    private Customer customer;
     //Has-A order has a customer. Bidirectional relationship
+    private Customer customer;
+
+    private List<OrderItem> orderItems;
+
+    public Order()
+    {
+        orderItems=new ArrayList<>();
+    }
+
+
     public int getOrderId()
     {
         return this.orderId;
@@ -23,8 +34,19 @@ public class Order
     {
         return this.customer;
     }
+
     public void setCustomer(Customer customer)
     {
         this.customer=customer;
+    }
+
+    public List<OrderItem> getOrderItems()
+    {
+        return this.orderItems;
+    }
+
+    public void setOrderItem(OrderItem orderItem)
+    {
+        this.orderItems.add(orderItem);
     }
 }

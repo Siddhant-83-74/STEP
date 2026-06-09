@@ -47,5 +47,21 @@ public class Company
         this.customers.add(customer);
     }
 
+    //Functional Methods
+    public double getTotalOrderValue()
+    {
+        double totalOrderValue=0.0;
+
+        for(Customer customer:this.customers){
+            for(Order order:customer.getOrder()){
+                for(OrderItem orderItem:order.getOrderItems()){
+                totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
+                }
+
+            }
+        }
+        return totalOrderValue;
+    }
+
 
 }
