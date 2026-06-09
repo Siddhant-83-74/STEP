@@ -49,4 +49,16 @@ public class Order
     {
         this.orderItems.add(orderItem);
     }
+
+    public double getTotalOrderValue(){
+        double totalOrderValue = 0.0;
+       
+        //No if else and any type of customer and still the logic will worl seamlessly without a change in this code
+        //Satisfies OCP - Open Closed Principle
+        for(OrderItem orderItem: this.getOrderItems()){
+            totalOrderValue += orderItem.getTotalOrderValue();
+        }
+        
+        return totalOrderValue;
+    }
 }

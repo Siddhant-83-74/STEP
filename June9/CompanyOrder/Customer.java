@@ -48,4 +48,39 @@ public class Customer
     {
         this.orders.add(order);
     }
+    //functional
+    // public double getTotalOrderValueV1()
+    // {
+    //     double totalOrderValue=0.0;
+
+        
+    //         for(Order order:this.getOrder()){
+    //             for(OrderItem orderItem:order.getOrderItems()){
+    //             if(this instanceof RegisteredCustomer){
+    //                 RegisteredCustomer rc= (RegisteredCustomer)this;
+    //                 totalOrderValue+= orderItem.getQuantity()*(orderItem.getItem().getRate()*(1.0-rc.getDiscount()/100.0));
+    //             }
+    //             else
+    //                 totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
+    //             }
+    //             //OCP: Open closed Principle
+    //             //class  should be open for extension but closed for modification
+    //             //and it can be solved from run-time polymorphism - Method Overloading
+                
+            
+    //     }
+    //     return totalOrderValue;
+    // }
+
+    public double getTotalOrderValueV2(){
+        double totalOrderValue = 0.0;
+       
+        //No if else and any type of customer and still the logic will worl seamlessly without a change in this code
+        //Satisfies OCP - Open Closed Principle
+        for(Order order: this.getOrder()){
+            totalOrderValue += order.getTotalOrderValue();
+        }
+        
+        return totalOrderValue;
+    }
 }

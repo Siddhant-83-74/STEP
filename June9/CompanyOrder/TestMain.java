@@ -52,7 +52,18 @@ public class TestMain
         //-----------------------
         //Registered customer walked into the store
 
-        var registeredCustomer= new RegisteredCustomer("Siddhant",1,10.0);
+        var registeredCustomer= new RegisteredCustomer("Siddhant",1);
+        var registeredCustomer2= new RegisteredCustomer("Anubhav",2);
+        var registeredCustomer3= new RegisteredCustomer("Dominic",3);
+        var membershipFactory=new MembershipFactory();
+        registeredCustomer.setMembership(membershipFactory.getMembership("Gold"));
+        registeredCustomer2.setMembership(membershipFactory.getMembership("Gold"));
+        registeredCustomer3.setMembership(membershipFactory.getMembership("silver"));
+        
+        // registeredCustomer.setMembershipType("Platinum");
+        // registeredCustomer.setMembershipType("gold");
+        // registeredCustomer.setDiscount(20);
+        // registeredCustomer.setFees(20000);
         var orderItem3 = new OrderItem(pant,2);
         var orderItem4 = new OrderItem(shoes,2);
 
@@ -66,7 +77,7 @@ public class TestMain
         registeredCustomer.addOrder(registeredOrder);
         company.addCustomer(registeredCustomer);
 
-        System.out.println(company.getTotalOrderValue());
+        System.out.println(company.getTotalOrderValueV2());
 
         // System.out.println(company.getCustomers().get(0).getName()+" has bought "+company.getTotalOrderValue());
         // System.out.println(company.getCustomers().get(1).getName()+" has bought "+company.getTotalOrderValue());
@@ -132,5 +143,7 @@ we have to make an object of class A in class B too.
 We need to know total order value of the company
 CEO has asked to find total orde value of the company
 
-
+Platinum customer will pay 20k fees and get 20% dis
+Gold 10k fees, 10% dis
+Silver 5k , 5% dis
 */

@@ -48,25 +48,43 @@ public class Company
     }
 
     //Functional Methods
-    public double getTotalOrderValue()
-    {
-        double totalOrderValue=0.0;
+    // public double getTotalOrderValue()
+    // {
+    //     double totalOrderValue=0.0;
 
-        for(Customer customer:this.customers){
-            for(Order order:customer.getOrder()){
-                for(OrderItem orderItem:order.getOrderItems()){
-                if(customer instanceof RegisteredCustomer){
-                    RegisteredCustomer rc= (RegisteredCustomer)customer;
-                    totalOrderValue+= orderItem.getQuantity()*(orderItem.getItem().getRate()*(1.0-rc.getDiscount()/100.0));
-                }
-                else
-                    totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
-                }
+    //     for(Customer customer:this.customers){
+    //         for(Order order:customer.getOrder()){
+    //             for(OrderItem orderItem:order.getOrderItems()){
+    //             if(customer instanceof RegisteredCustomer){
+    //                 RegisteredCustomer rc= (RegisteredCustomer)customer;
+    //                 totalOrderValue+= orderItem.getQuantity()*(orderItem.getItem().getRate()*(1.0-rc.getDiscount()/100.0));
+    //             }
+    //             else
+    //                 totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
+    //             }
+    //             //OCP: Open closed Principle
+    //             //class  should be open for extension but closed for modification
+    //             //and it can be solved from run-time polymorphism - Method Overloading
+                
+    //         }
+    //     }
+    //     return totalOrderValue;
+    // }
+public double getTotalOrderValueV2(){
+        double totalOrderValue = 0.0;
+       
+        //No if else and any type of customer and still the logic will worl seamlessly without a change in this code
+        //Satisfies OCP - Open Closed Principle
 
-            }
+        //we are iterating only 
+        for(Customer customer: this.customers){
+            totalOrderValue += customer.getTotalOrderValueV2();
         }
+        
         return totalOrderValue;
     }
 
-
 }
+
+
+

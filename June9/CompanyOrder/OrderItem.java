@@ -33,4 +33,15 @@ public class OrderItem
     {
         this.quantity=quantity;
     }
+
+    //OrderItem class is taking responsiblity to calculte the total amount for the item
+        public double getTotalOrderValue(){
+        double totalOrderValue = 0.0;
+       
+        //No if else and any type of customer and still the logic will worl seamlessly without a change in this code
+        //Satisfies OCP - Open Closed Principle
+        totalOrderValue=this.item.getRate()*this.quantity;
+        
+        return totalOrderValue;
+    }
 }
