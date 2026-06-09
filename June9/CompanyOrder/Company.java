@@ -55,7 +55,12 @@ public class Company
         for(Customer customer:this.customers){
             for(Order order:customer.getOrder()){
                 for(OrderItem orderItem:order.getOrderItems()){
-                totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
+                if(customer instanceof RegisteredCustomer){
+                    RegisteredCustomer rc= (RegisteredCustomer)customer;
+                    totalOrderValue+= orderItem.getQuantity()*(orderItem.getItem().getRate()*(1.0-rc.getDiscount()/100.0));
+                }
+                else
+                    totalOrderValue+= orderItem.getQuantity()*orderItem.getItem().getRate();
                 }
 
             }
