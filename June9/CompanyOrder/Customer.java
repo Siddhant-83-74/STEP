@@ -1,14 +1,21 @@
 package CompanyOrder;
-
+import java.util.List;
+import java.util.ArrayList;
 
 public class Customer
 {
+    //Has-A a Customer has many customer ~ bidirectional
+    private List<Order> orders;
     private String name;
-    private String id;
-    public Customer(String name, String id)
+    private int customerId;
+    // if we use discount data here then for all the regular customers it will be 0
+    //MIC-Mixed Instance Cohesion
+    //Mixing some other instance data with this instance
+    public Customer(String name, int customerId)
     {
         this.name=name;
-        this.id=id;
+        this.customerId=customerId;
+        this.orders=new ArrayList<>();
     }
 
     public String getName()
@@ -21,13 +28,23 @@ public class Customer
         this.name=name;
     }
 
-    public String getId()
+    public int getCustomerId()
     {
-        return this.id;
+        return this.customerId;
     }
 
-    public void setId(String id)
+    public void setCustomerId(int customerId)
     {
-        this.id=id;
+        this.customerId=customerId;
+    }
+
+    public List<Order> getOrders()
+    {
+        return this.orders;
+    }
+
+    public void addOrder(Order order)
+    {
+        this.orders.add(order);
     }
 }

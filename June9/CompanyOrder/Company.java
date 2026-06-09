@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 public class Company
 {
-    //Has-A relationship
+    //Has-A relationship ~unidirectional
     private List<Item> items;
+    //Has-A ~ Unidirectional
+    private List<Customer> customers;
     private String name;
 
     public Company(String name)
     {
         this.name=name;
         this.items= new ArrayList<>();
+        this.customers=new ArrayList<>();
 
     }
 
@@ -29,9 +32,19 @@ public class Company
     {
         return this.items;
     }
+
     public void addItem(Item item)
     {
         this.items.add(item);
+    }
+
+    public List<Customer> getCustomers()
+    {
+        return this.customers;
+    }
+    public void addCustomer(Customer customer)
+    {
+        this.customers.add(customer);
     }
 
 

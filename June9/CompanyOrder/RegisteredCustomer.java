@@ -3,18 +3,18 @@ package CompanyOrder;
 
 public class RegisteredCustomer extends Customer
 {
-    double discountRate;
-    public RegisteredCustomer(String name,String id,double discountRate)
+    double discount;
+    public RegisteredCustomer(String name,int id,double discount)
     {
         super(name,id);
-        this.discountRate=discountRate;
+        this.discount=discount;
     }
 
-    public double getDiscountRate(){
-        return this.discountRate;
+    public double getDiscount(){
+        return this.discount;
     }
-    public void setDiscountRate(double discountRate)
+    public void setDiscount(double discount)
     {
-        this.discountRate=discountRate;
+        this.discount=discount;
     }
 }
