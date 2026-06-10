@@ -14,7 +14,8 @@ public class MembershipFactory {
         else if(membershipType.equalsIgnoreCase("gold"))
         {
             
-            var membership=new Membership("gold");
+            var membership=new Membership(
+                "gold");
             membership.setFees(10000.0);
             membership.setDiscount(10.0);
             return membership;
