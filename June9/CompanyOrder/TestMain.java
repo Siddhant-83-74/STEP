@@ -44,14 +44,14 @@ public class TestMain
         regularOrder.addOrderItem(orderItem2);
 
         //regular cusotmer makes the payment and order handed over to customer
-
+        
         regularCustomer.addOrder(regularOrder);
-
+        
         company.addCustomer(regularCustomer);
-
+        
         //-----------------------
         //Registered customer walked into the store
-
+        
         var registeredCustomer= new RegisteredCustomer("Siddhant",1);
         var registeredCustomer2= new RegisteredCustomer("Anubhav",2);
         var registeredCustomer3= new RegisteredCustomer("Dominic",3);
@@ -66,19 +66,21 @@ public class TestMain
         // registeredCustomer.setFees(20000);
         var orderItem3 = new OrderItem(pant,2);
         var orderItem4 = new OrderItem(shoes,2);
-
+        
         var registeredOrder= new Order();
-
+        
         registeredOrder.setCustomer(registeredCustomer);
-
+        
         registeredOrder.addOrderItem(orderItem3);
         registeredOrder.addOrderItem(orderItem4);
         
         registeredCustomer.addOrder(registeredOrder);
         company.addCustomer(registeredCustomer);
-
+        
         System.out.println(company.getTotalOrderValueV2());
-
+        System.out.println();
+        var billingManager=new BillingManager();
+        billingManager.generateBill(registeredOrder);
         // System.out.println(company.getCustomers().get(0).getName()+" has bought "+company.getTotalOrderValue());
         // System.out.println(company.getCustomers().get(1).getName()+" has bought "+company.getTotalOrderValue());
 
@@ -146,4 +148,28 @@ CEO has asked to find total orde value of the company
 Platinum customer will pay 20k fees and get 20% dis
 Gold 10k fees, 10% dis
 Silver 5k , 5% dis
+
+
+
+3 types of Class identification techniques
+
+NIT-Noun idetification technique
+DDT-Data driven technique
+ADT-Abstraction driven techniques
+
+ADT:
+Encapsulation- Hiding data, implementation- what is hidden-private
+Abstraction - WHAT(SEE and DO) - public view of an object- what is visible-public
+Implementation- HOW
+Class - WHO(Where it is to be implemented)
+Breaking down a method in smaller u=fucntional units
+Unit testable programming
+
+Billing- Generate the bill on the basis of customer
+order total, GST cess
+BillingManager is the class that will have the abstraction generate bill
+
+
+
+
 */
